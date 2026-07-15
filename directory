@@ -1,0 +1,32 @@
+frontend/
+
+src/
+
+    main.ts
+
+    game.ts
+
+    core/
+
+        Game.ts
+
+    config/
+
+        GameConfig.ts
+
+    scenes/
+
+        BootScene.ts
+        MenuScene.ts
+        GameScene.ts
+        EndScene.ts
+
+    entities/
+
+    systems/
+
+    ui/
+
+    services/
+
+    assets/

@@ -1,3 +1,3 @@
-import { ArrowsticiniGame } from './core/Game';
+import { ArrowsticiniGame } from './../core/Game';
 
 new ArrowsticiniGame();

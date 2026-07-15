@@ -1,5 +1,8 @@
 import Phaser from 'phaser';
 
+import { Grid } from '../src/engine/grid/Grid';
+import { GridRenderer } from '../src/engine/grid/GridRenderer';
+
 export class GameScene extends Phaser.Scene {
 
     constructor() {
@@ -10,29 +13,9 @@ export class GameScene extends Phaser.Scene {
 
     create() {
 
-        this.add.text(
+        const grid = new Grid(3, 3);
 
-            195,
-
-            400,
-
-            'GAME SCENE',
-
-            {
-
-                fontSize: '32px',
-
-                color: '#ffffff'
-
-            }
-
-        ).setOrigin(.5);
-
-        this.input.once('pointerdown', () => {
-
-            this.scene.start('end');
-
-        });
+        new GridRenderer(this, grid).render();
 
     }
 
