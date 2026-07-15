@@ -1,37 +1,37 @@
-import { Tile } from './Tile';
+import { Tile } from "./Tile";
 
 export class Grid {
 
-    readonly tiles: Tile[][] = [];
+    private readonly tiles: Tile[][] = [];
 
     constructor(
         public readonly rows: number,
         public readonly columns: number
     ) {
 
-        for (let r = 0; r < rows; r++) {
+        for (let row = 0; row < rows; row++) {
 
-            const row: Tile[] = [];
+            const current: Tile[] = [];
 
-            for (let c = 0; c < columns; c++) {
+            for (let column = 0; column < columns; column++) {
 
-                row.push(new Tile(r, c));
+                current.push(new Tile(row, column));
 
             }
 
-            this.tiles.push(row);
+            this.tiles.push(current);
 
         }
 
     }
 
-    getTile(row: number, column: number): Tile {
+    public getTile(row: number, column: number): Tile {
 
         return this.tiles[row][column];
 
     }
 
-    forEach(callback: (tile: Tile) => void) {
+    public forEach(callback: (tile: Tile) => void): void {
 
         this.tiles.flat().forEach(callback);
 

@@ -4,40 +4,47 @@ import { Grid } from "./Grid";
 export class GridRenderer {
 
     constructor(
-        private readonly scene: Phaser.Scene,
-        private readonly grid: Grid
+        private readonly scene: Phaser.Scene
     ) {}
 
-    render() {
+    render(grid: Grid) {
 
         const width = this.scene.scale.width;
         const height = this.scene.scale.height;
 
-        const margin = 20;
+        const horizontalMargin = 30;
+        const topMargin = 170;
+        const bottomMargin = 40;
 
-        const availableWidth = width - margin * 2;
-        const availableHeight = height - 200;
+        const availableWidth = width - horizontalMargin * 2;
+        const availableHeight = height - topMargin - bottomMargin;
 
-        const cell = Math.min(
-            availableWidth / this.grid.columns,
-            availableHeight / this.grid.rows
+        const cellSize = Math.min(
+            availableWidth / grid.columns,
+            availableHeight / grid.rows
         );
 
-        const gridWidth = cell * this.grid.columns;
-        //const gridHeight = cell * this.grid.rows;
+        const gridWidth = cellSize * grid.columns;
+        const gridHeight = cellSize * grid.rows;
 
         const startX = (width - gridWidth) / 2;
-        const startY = 140;
+        const startY = topMargin;
 
-        this.grid.forEach(tile => {
+        grid.forEach(tile => {
 
             this.scene.add.rectangle(
-                startX + tile.column * cell,
-                startY + tile.row * cell,
-                cell - 10,
-                cell - 10,
-                0x444444
-            ).setOrigin(0);
+
+                startX + tile.column * cellSize,
+                startY + tile.row * cellSize,
+
+                cellSize - 10,
+                cellSize - 10,
+
+                0x4d4d4d
+
+            )
+            .setOrigin(0)
+            .setStrokeStyle(2, 0xffffff);
 
         });
 
