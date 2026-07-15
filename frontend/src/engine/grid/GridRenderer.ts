@@ -24,7 +24,7 @@ export class GridRenderer {
         );
 
         const gridWidth = cell * this.grid.columns;
-        const gridHeight = cell * this.grid.rows;
+        //const gridHeight = cell * this.grid.rows;
 
         const startX = (width - gridWidth) / 2;
         const startY = 140;

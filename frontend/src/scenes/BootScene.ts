@@ -9,12 +9,13 @@ export class BootScene extends Phaser.Scene {
     }
 
     preload() {
-
+        // Intenzionalmente vuoto o da implementare in seguito
     }
 
     create() {
 
         this.scene.start('menu');
+        console.log(this.scene.manager.scenes);
 
     }
 
