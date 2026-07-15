@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-import { gameConfig } from '../config/GameConfig';
+import { gameConfig } from '../src/config/GameConfig';
 
 export class ArrowsticiniGame {
 

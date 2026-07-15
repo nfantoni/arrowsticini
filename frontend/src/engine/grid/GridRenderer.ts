@@ -1,5 +1,5 @@
-import Phaser from 'phaser';
-import { Grid } from './Grid';
+import Phaser from "phaser";
+import { Grid } from "./Grid";
 
 export class GridRenderer {
 
@@ -10,26 +10,33 @@ export class GridRenderer {
 
     render() {
 
-        const cell = 90;
+        const width = this.scene.scale.width;
+        const height = this.scene.scale.height;
 
-        const offsetX = 60;
+        const margin = 20;
 
-        const offsetY = 180;
+        const availableWidth = width - margin * 2;
+        const availableHeight = height - 200;
+
+        const cell = Math.min(
+            availableWidth / this.grid.columns,
+            availableHeight / this.grid.rows
+        );
+
+        const gridWidth = cell * this.grid.columns;
+        const gridHeight = cell * this.grid.rows;
+
+        const startX = (width - gridWidth) / 2;
+        const startY = 140;
 
         this.grid.forEach(tile => {
 
             this.scene.add.rectangle(
-
-                offsetX + tile.column * cell,
-
-                offsetY + tile.row * cell,
-
-                70,
-
-                70,
-
+                startX + tile.column * cell,
+                startY + tile.row * cell,
+                cell - 10,
+                cell - 10,
                 0x444444
-
             ).setOrigin(0);
 
         });
